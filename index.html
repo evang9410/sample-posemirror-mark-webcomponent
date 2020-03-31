@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css", href="src/client/components/custom-mark/custom.css">
+        <link rel="stylesheet" type="text/css", href="src/client/components/editor/editor.css">
+    </head>
+    <body>
+    <script type="module" src="dist/components/custom-mark/custom-mark.js"></script>
+    <script type="module" src="dist/components/editor/editor.js"></script>
+
+    <prosemirror-editor>
+        <p>some text here</p>
+        
+        <my-custom-mark reflected-attribute="reflected">custom mark</my-custom-mark>
+        <!-- uncomment line below to see the issue -->
+        <!-- <my-custom-mark reflected-attribute="reflected">custom mark</my-custom-mark> -->
+        <i>some italic text</i>
+    </prosemirror-editor>
+    </body>
+</html>
