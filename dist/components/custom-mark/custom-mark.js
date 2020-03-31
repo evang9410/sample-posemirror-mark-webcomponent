@@ -14,11 +14,19 @@ let CustomMark = class CustomMark extends LitElement {
     constructor() {
         super();
         // Issue only appears when reflect=true
-        this.reflectedAttribute = 'reflected'; // default value to show how when prosemirror changes value, infitite loop is created.
+        this.reflectedAttribute = "default"; // default value to show how when prosemirror changes value, infitite loop is created.
+        /**
+         * Chaging the attribute directly through webcomponent does not seem to casue an issue.
+         */
+        this.onclick = () => {
+            const value = Math.floor(Math.random() * Math.floor(10));
+            this.reflectedAttribute = String(value);
+        };
     }
     render() {
         return html `
-            <slot></slot>
+            <slot>
+            </slot>
         `;
     }
 };

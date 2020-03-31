@@ -25,6 +25,7 @@ export const marks: MarkSpec = {
             const attrs: { [attr: string]: string } = {};
 
             if(mark.attrs['reflected-attribute']) {
+                //@ts-ignore
                 attrs['reflected-attribute'] = mark.attrs['reflected-attribute'];
             }
             return ['my-custom-mark', attrs, 0];

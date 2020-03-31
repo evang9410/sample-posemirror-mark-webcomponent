@@ -22,7 +22,7 @@ const mySchema = new Schema({
 
 @customElement('prosemirror-editor')
 export default class CustomMark extends LitElement {
-    private editorView: EditorView;
+    public editorView: EditorView;
 
     constructor(){
         super();

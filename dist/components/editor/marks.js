@@ -22,6 +22,7 @@ export const marks = {
             console.log('ProseMirror:', 'toDOM(mark: MarkSpec)', ' mark: ', mark);
             const attrs = {};
             if (mark.attrs['reflected-attribute']) {
+                //@ts-ignore
                 attrs['reflected-attribute'] = mark.attrs['reflected-attribute'];
             }
             return ['my-custom-mark', attrs, 0];

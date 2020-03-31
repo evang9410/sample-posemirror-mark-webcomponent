@@ -20,17 +20,24 @@ export default class CustomMark extends LitElement {
             }
         } 
     })
-    public reflectedAttribute: string = 'reflected'; // default value to show how when prosemirror changes value, infitite loop is created.
-
+    public reflectedAttribute: string = "default"; // default value to show how when prosemirror changes value, infitite loop is created.
+    
     constructor(){
         super();
+        /**
+         * Chaging the attribute directly through webcomponent does not seem to casue an issue.
+         */
+        this.onclick = () => {
+            const value = Math.floor(Math.random() * Math.floor(10));
+            this.reflectedAttribute = String(value);
+        };
     }
-
 
 
     protected render(): TemplateResult {
         return html`
-            <slot></slot>
+            <slot>
+            </slot>
         `;
     }
 }
