@@ -1,28 +1,28 @@
-import { LitElement, customElement, property } from 'lit-element';
-import { html, TemplateResult } from 'lit-html';
+import { LitElement, customElement, property } from "lit-element";
+import { html, TemplateResult } from "lit-html";
 
-const tag: string = '<my-custom-mark>'
-@customElement('my-custom-mark')
+const tag: string = "<my-custom-mark>";
+@customElement("my-custom-mark")
 export default class CustomMark extends LitElement {
     // Issue only appears when reflect=true
-    @property({ 
-        type: String, 
-        attribute: 'reflected-attribute', 
+    @property({
+        type: String,
+        attribute: "reflected-attribute",
         reflect: true,
         converter: {
             toAttribute: (value: string, type: String) => {
-                console.log(tag, ': ', 'property converter toAttribute value: ', value);
+                console.log(tag, ": ", "property converter toAttribute value: ", value);
                 return value;
             },
             fromAttribute: (value: string, type: String) => {
-                console.log(tag, ': ', 'property converter fromAttribute: ', value);
+                console.log(tag, ": ", "property converter fromAttribute: ", value);
                 return value;
             }
-        } 
+        }
     })
     public reflectedAttribute: string = "default"; // default value to show how when prosemirror changes value, infitite loop is created.
-    
-    constructor(){
+
+    constructor() {
         super();
         /**
          * Chaging the attribute directly through webcomponent does not seem to casue an issue.
@@ -33,11 +33,9 @@ export default class CustomMark extends LitElement {
         };
     }
 
-
     protected render(): TemplateResult {
         return html`
-            <slot>
-            </slot>
+            <slot> </slot>
         `;
     }
 }
