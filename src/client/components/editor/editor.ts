@@ -1,4 +1,4 @@
-import { LitElement, customElement, property } from 'lit-element';
+import { LitElement, customElement } from 'lit-element';
 import { html, TemplateResult } from 'lit-html';
 
 // prosemirror modules

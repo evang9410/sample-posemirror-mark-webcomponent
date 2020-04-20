@@ -9,7 +9,6 @@ export const marks: MarkSpec = {
         parseDOM: [
             {
                 tag: 'my-custom-mark',
-                atom: true,
                 getAttrs(dom: HTMLElement): { [attr: string]: string } {
                     return {
                         'reflected-attribute': dom.getAttribute('reflected-attribute'),
@@ -21,16 +20,43 @@ export const marks: MarkSpec = {
             'reflected-attribute': { default: 'reflected' },
         },
         toDOM(mark: MarkSpec): DOMOutputSpec {
-            console.log('ProseMirror:', 'toDOM(mark: MarkSpec)', ' mark: ', mark);
-            const attrs: { [attr: string]: string } = {};
+            // console.log('ProseMirror:', 'toDOM(mark: MarkSpec)', ' mark: ', mark);
+            // const attrs: { [attr: string]: string } = {};
 
-            if(mark.attrs['reflected-attribute']) {
-                //@ts-ignore
-                attrs['reflected-attribute'] = mark.attrs['reflected-attribute'];
-            }
-            return ['my-custom-mark', attrs, 0];
+            // if(mark.attrs['reflected-attribute']) {
+            //     //@ts-ignore
+            //     attrs['reflected-attribute'] = mark.attrs['reflected-attribute'];
+            // }
+            return ['my-custom-mark', 0];
         },
     },
 }
 
 
+/*
+
+
+const getAttrs = (dom: HTMLElement): { [attr: string]: string } => {
+    return {
+        'view-mode': dom.getAttribute('view-mode') || 'editing',
+    };
+};
+
+const toDOM = (): DOMOutputSpec => {
+    return ['xray-trigger', 0];
+};
+
+export const xrayTrigger: MarkSpec = {
+    attrs: {
+        'view-mode': { default: 'editing' },
+    },
+    parseDOM: [
+        {
+            tag: 'xray-trigger',
+            getAttrs,
+        },
+    ],
+    toDOM,
+};
+
+*/
