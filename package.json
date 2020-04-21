@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "watch": "tsc -p src/client --watch",
-        "start": "es-dev-server -p 8989"
+        "start": "es-dev-server -p 8989",
+        "lint": "eslint 'src/**/*.ts' --fix; prettier 'src/**/*.ts' --write"
     },
     "author": "",
     "license": "ISC",
@@ -25,6 +26,35 @@
         "@types/prosemirror-view": "latest",
         "es-dev-server": "latest",
         "http-server": "latest",
-        "typescript": "latest"
+        "typescript": "latest",
+        "eslint": "latest",
+        "prettier": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/parser": "latest"
+    },
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "extends": [
+            "plugin:@typescript-eslint/recommended",
+            "prettier/@typescript-eslint",
+            "plugin:prettier/recommended"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 2020,
+            "sourceType": "module"
+        },
+        "rules": {
+            "@typescript-eslint/ban-ts-ignore": "warn",
+            "@typescript-eslint/no-explicit-any": "off"
+        }
+    },
+    "prettier": {
+        "endOfLine": "lf",
+        "printWidth": 160,
+        "singleQuote": true,
+        "semi": true,
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "useTabs": false
     }
 }
