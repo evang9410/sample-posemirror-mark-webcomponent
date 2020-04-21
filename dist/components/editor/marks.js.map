@@ -1,1 +1,0 @@
-{"version":3,"file":"marks.js","sourceRoot":"","sources":["../../../src/client/components/editor/marks.ts"],"names":[],"mappings":"AAEA,MAAM,YAAY,GAAa;IAC3B,KAAK,EAAE;QACH,qBAAqB,EAAE,EAAE,OAAO,EAAE,SAAS,EAAE;KAChD;IACD,QAAQ,EAAE;QACN;YACI,GAAG,EAAE,qCAAqC;SAC7C;KACJ;CACJ,CAAC;AAEF,MAAM,CAAC,MAAM,KAAK,GAAgC;IAC9C,YAAY;CACf,CAAC"}
