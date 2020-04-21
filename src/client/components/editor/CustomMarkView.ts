@@ -15,21 +15,16 @@ export class CustomMarkView implements NodeView {
         this.getPos = getPos;
         this.decorations = decorations;
 
-        const container = document.createElement('div');
-        container.innerHTML = `<my-custom-mark 
-            ${node.attrs['reflected-attribute'] ? `reflected-attribute="${node.attrs['reflected-attribute']}"` : ''}
-        >
-            ${node.attrs.inner}
-        </my-custom-mark>`;
-        this.dom = container.firstElementChild as HTMLElement;
-
+        const el = document.createElement('my-custom-mark');
+        el.setAttribute('reflected-attribute', node.attrs['reflected-attribute']);
+        el.innerHTML = node.attrs.inner;
+        this.dom = el;
         this.observeMutations();
     }
 
     protected observeMutations(): void {
         const observer: MutationObserver = new MutationObserver((mutations: MutationRecord[]) => {
             this.updateProseNodeAttributes(mutations);
-            //this.view.state.tr.setNodeMarkup(this.getPos(), undefined, this.node.attrs);
         });
         observer.observe(this.dom, { attributes: true, attributeOldValue: true, childList: true });
     }
@@ -38,14 +33,6 @@ export class CustomMarkView implements NodeView {
         mutations.forEach((mutation: MutationRecord) => {
             this.node.attrs[mutation.attributeName] = this.dom.getAttribute(mutation.attributeName);
         });
-
-        // if (
-        //     mutations.filter((mutation: MutationRecord) => {
-        //         return mutation.type === "childList";
-        //     })
-        // ) {
-        //     this.node.attrs["inner"] = this.dom.innerHTML;
-        // }
     }
 
     stopEvent(): boolean {
