@@ -1,19 +1,19 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css", href="src/client/components/custom-mark/custom.css">
-        <link rel="stylesheet" type="text/css", href="src/client/components/editor/editor.css">
+        <link rel="stylesheet" type="text/css" , href="src/client/components/custom-mark/custom.css" />
+        <link rel="stylesheet" type="text/css" , href="src/client/components/editor/editor.css" />
     </head>
     <body>
-    <script type="module" src="dist/components/custom-mark/custom-mark.js"></script>
-    <script type="module" src="dist/components/editor/editor.js"></script>
+        <script type="module" src="dist/components/custom-mark/custom-mark.js"></script>
+        <script type="module" src="dist/components/editor/editor.js"></script>
 
-    <prosemirror-editor>
-        <p>some text here</p>
-        
-        <my-custom-mark reflected-attribute="default">custom mark</my-custom-mark>
-        <!-- uncomment line below to see the issue -->
-        <my-custom-mark reflected-attribute="default">custom mark</my-custom-mark>
-        <i>some italic text</i>
-    </prosemirror-editor>
+        <prosemirror-editor>
+            <p>
+                some text here <my-custom-mark reflected-attribute="default">first custom mark</my-custom-mark>
+                with some more text in between
+                <my-custom-mark reflected-attribute="default">second custom mark</my-custom-mark>
+                and also <i>some italic text</i>
+            </p>
+        </prosemirror-editor>
     </body>
 </html>
